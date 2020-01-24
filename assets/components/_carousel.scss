@@ -1,0 +1,15 @@
+.collapse {
+    &:not(.show) {
+      display: block;
+    }
+}
+
+.modal-title{
+  font-weight: bold;
+}
+.modal-dialog .modal-header{
+  padding: 10px 24px 0;
+}
+// .collapse:not(.show){
+//     .collapse:not(.show)
+// }

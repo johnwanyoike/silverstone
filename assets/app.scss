@@ -1,0 +1,10 @@
+@import "components/carousel";
+@import "slick-carousel/slick/slick-theme";
+
+.slick-next{
+    right: 25px;
+}
+.slick-prev {
+    left: 25px;
+    z-index: 1;
+}
