@@ -116,7 +116,7 @@ export default {
       '/hankookpattern/K120',
       '/hankookpattern/RT03',
       '/toyopattern/PROXES T1R',
-      '/toyopattern/OPEN COUNTRY AT+',
+      '/toyopattern/OPEN COUNTRY ATPLUS',
       '/toyopattern/PROXES C1S',
       '/toyopattern/OPEN COUNTRY UT',
       '/toyopattern/OPEN COUNTRY 785',
