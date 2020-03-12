@@ -7,7 +7,7 @@
                     Click here for more information.
                 </b-button>
             </a>
-            <button class="btn btn-info btn-sm" @click.prevent="$emit('clearSearch')">Clear Search</button>
+            <!-- <button class="btn btn-info btn-sm" @click.prevent="$emit('clearSearch')">Clear Search</button> -->
             
         </h5>
         <b-modal id="modal-lg" size="lg" title="Finding Your Tyre Size" ok-only>

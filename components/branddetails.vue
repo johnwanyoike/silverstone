@@ -6,7 +6,7 @@
                     <div class="col-md-7 mr-auto ml-auto">
                         <div class="row">
                             <div class="col-12 pt-2">
-                                <h3 class="my-0 title text-warning text-center">{{data.pattern}}</h3>
+                                <h3 class="my-0 title text-warning text-center">{{data.name}}</h3>
                             </div>
                         </div>
                     </div>
@@ -21,7 +21,7 @@
                             </div>
                             <div class="col-12">
                                 <template v-if="data.file">
-                                    <a :href="'/img/pdf/'+data.pattern+'.pdf'" target="_blank" class="btn btn-warning btn-round mt-5"><i class="material-icons">subject</i> Download {{data.pattern}} file</a>
+                                    <a :href="'/img/pdf/'+data.file" target="_blank" class="btn btn-warning btn-round mt-5"><i class="material-icons">subject</i> Download {{data.pattern}} file</a>
                                 </template>
                             </div>
                             <div class="col-md-12 mt-4">

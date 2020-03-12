@@ -4,11 +4,11 @@
         <div class="navbar-translate">
             <nuxt-link :to="{ name: 'index' }">
                 <img src="/img/logo.png" width="170">
-                <span class="title text-warning mt-0">
-                    <i class="text-warning material-icons animated swing infinite">phone</i>
-                    <a href="tel:+254730772999" class="text-warning" style="font-size: 24px;">0730 772 999</a>
-                </span>
             </nuxt-link>
+            <span class="title text-warning mt-0">
+                <i class="text-warning material-icons animated swing infinite">phone</i>
+                <a href="tel:+254730772999" class="text-warning" style="font-size: 24px;">0730 772 999</a>
+            </span>
             
             <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -28,26 +28,11 @@
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                         TYRES
                     </a>
+                     <!-- :to="{ name: br.slug, params: {brand:br.name} }" -->
                     <div class="dropdown-menu dropdown-with-icons">
-                        <nuxt-link :to="{ name: 'continental', params: {brand:'CONTI'} }" class="dropdown-item">
-                            Continental
+                        <nuxt-link v-for="(br, i) in normaltyres" :key="i" :to="{ name: 'brand-slug', params: {slug:br.slug} }" class="dropdown-item">
+                            {{br.name}}
                         </nuxt-link>
-                        <nuxt-link :to="{ name: 'general', params: {brand:'GENERAL'} }" class="dropdown-item">
-                            General
-                        </nuxt-link>
-                        <nuxt-link :to="{ name: 'hankook', params: {brand:'HANKOOK'} }" class="dropdown-item">
-                            Hankook
-                        </nuxt-link>
-                        <nuxt-link :to="{ name: 'toyo', params: {brand:'TOYO'} }" class="dropdown-item">
-                            Toyo
-                        </nuxt-link>
-                        <nuxt-link :to="{ name: 'zeta', params: {brand:'ZETA'} }" class="dropdown-item">
-                            Zeta
-                        </nuxt-link>
-                        <nuxt-link :to="{ name: 'sailun', params: {brand:'SAILUN'} }" class="dropdown-item">
-                            Sailun
-                        </nuxt-link>
-                        
                     </div>
                 </li>
                 <li class="dropdown nav-item">
@@ -55,15 +40,11 @@
                         Speciality Tyres
                     </a>
                     <div class="dropdown-menu dropdown-with-icons">
-                        <nuxt-link :to="{ name: 'galaxy', params: {brand:'GALAXY'} }" class="dropdown-item">
-                            Galaxy
-                        </nuxt-link>
-                        <nuxt-link :to="{ name: 'maxam', params: {brand:'MAXAM'} }" class="dropdown-item">
-                            Maxam
+                        <nuxt-link v-for="(br, i) in specialtyres" :key="i" :to="{ name: 'brand-slug', params: {slug:br.slug} }" class="dropdown-item">
+                            {{br.name}}
                         </nuxt-link>
                     </div>
                 </li>
-
                 <li class="dropdown nav-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                         Batteries
@@ -77,7 +58,6 @@
                         </nuxt-link>
                     </div>
                 </li>
-                
                 <li class="dropdown nav-item">
                     <nuxt-link class="nav-link" :to="{ name: 'index', params: {brand:'services'} }">
                         Services
@@ -109,8 +89,36 @@
 </template>
 
 <script>
-  export default {
-  }
+  import { mapGetters } from "vuex";
+    export default {
+        computed: {
+            ...mapGetters({
+                brands: 'brands',
+            }),
+            normaltyres: function(){
+                var filtered = [];
+                filtered = this.brands.filter((br) => {
+                    return br.name != 'Galaxy' && br.name != 'Maxam'
+                })
+                return filtered;
+            },
+            specialtyres: function(){
+                var filtered = [];
+                filtered = this.brands.filter((br) => {
+                    return br.name == 'Galaxy' || br.name == 'Maxam'
+                })
+                return filtered;
+            },
+            link () {
+                return {
+                    name: 'brand-slug',
+                    params: {
+                        slug: this.brands.slug
+                    }
+                }
+            }
+        }
+    };
 </script>
 <style>
 </style>

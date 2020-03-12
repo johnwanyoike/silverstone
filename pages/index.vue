@@ -16,7 +16,8 @@ import Banner from "~/components/banner.vue";
 export default {
     data() {
         return {
-            scrolling: false
+            scrolling: false,
+            services: null,
         }
     },
     components: {
@@ -28,6 +29,12 @@ export default {
             var cancelScroll = VueScrollTo.scrollTo('#element', 500)
         }
     },
+    // async asyncData({ params, app }) {
+    //     let response = await app.$axios.$get(`brands`);
+    //     return{
+    //         brands: response.data
+    //     }
+    // }
 };
 </script>
 

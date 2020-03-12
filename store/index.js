@@ -1,4 +1,5 @@
 export const state = () => ({
+    brands: [],
     unique: [],
     ratio:[],
     brandwidth:[],
@@ -10205,6 +10206,9 @@ export const state = () => ({
 })
 
 export const getters = {
+    brands (state){
+        return state.brands
+    },
     tyres (state){
         return state.tyres
     },
@@ -10365,7 +10369,6 @@ export const mutations = {
             }
         }
     },
-    
     SET_SEARCH_ALLDATA (state, searchratio) {
         for (var item, i = 0; item = state.tyres[i++];) {
             if (searchratio.width == item.sectionalwidth && searchratio.ratio == item.aspectratio && searchratio.diameter == item.rimdiameter) {
@@ -10401,9 +10404,16 @@ export const mutations = {
     SET_CLEAR_BRAND_DIAMETER (state, data) {
         state.branddiameter = data
     },
+    SET_BRANDS (state, brands) {
+        state.brands = brands
+    },
 }
 
 export const actions = {
+    async nuxtServerInit({ commit, dispatch }) {
+        let response = await this.$axios.$get('brands')
+        commit('SET_BRANDS', response.data)
+    },
     async setUnique ({ commit }, unique) {
         commit('SET_UNIQUE_TYRES', unique)
     },
@@ -10431,11 +10441,9 @@ export const actions = {
     getselectpattern ({ commit }, pattern) {
         commit('SET_SELECT_PATTERN', pattern)
     },
-
     getselectsinglepattern ({ commit }, pattern) {
         commit('SET_SELECT_SINGLE_PATTERN', pattern)
     },
-
     clearratio ({ commit }) {
         commit('SET_CLEAR_RATIO', [])
     },

@@ -1,8 +1,10 @@
 import pkg from './package'
+const env = require('dotenv').config()
 // import data from './store/index'
 // const axios = require('axios')
 export default {
   mode: 'universal',
+  env:env.parsed,
 
   /*
   ** Headers of the page
@@ -185,8 +187,13 @@ export default {
   modules: [
     'bootstrap-vue/nuxt',
     '@nuxtjs/pwa',
+    '@nuxtjs/axios',
     // '@nuxtjs/google-analytics',
   ],
+
+  axios: {
+    baseURL: process.env.API_URL
+  },
 
   googleAnalytics: {
     id: 'UA-12301-2'

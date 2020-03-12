@@ -17,6 +17,11 @@
                     <div class="container">
                         <div class="about-services features-2">
                             <div class="row">
+                                <div class="col-md-8 ml-auto mr-auto text-center">
+                                    <h2 class="title my-1">Locate our store</h2>
+                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-md-4">
                                     <div class="info info-horizontal">
                                         <div class="icon icon-warning">
@@ -122,9 +127,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                
-                            </div>
-                            <div class="row">
                                 <div class="col-md-4">
                                     <div class="info info-horizontal">
                                         <div class="icon icon-warning">
@@ -238,15 +240,73 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-8 ml-auto mr-auto text-center">
-                                    <h2 class="title">Locate our store</h2>
+                                <div class="col-md-4">
+                                    <div class="info info-horizontal">
+                                        <div class="icon icon-warning">
+                                            <i class="material-icons">pin_drop</i>
+                                        </div>
+                                        <div class="description">
+                                            <h4 class="info-title"><a class="text-dark locationlinks" href="https://www.google.com/maps/place/ContiPartner+Mombasa+-+Azan+Enterprises+Ltd/@-4.0564531,39.6609052,18.13z/data=!4m5!3m4!1s0x0:0x2d0f04d4a95a663b!8m2!3d-4.0565087!4d39.6612742" target="_blank">MOMBASA<br/> AZAN ENTERPRISES LTD</a></h4>
+                                            <p class="text-dark">
+                                                Miji Kenda St.       
+                                                <br> Mombasa,
+                                                <br><a href="tel:+254722808301">+254 (0) 722 808301</a>
+                                                <br><a href="mailto:info@azan-enterprises.co.ke">info@azan-enterprises.co.ke </a>
+                                            </p>
+
+                                            <div class="info info-horizontal">
+                                                <div class="description">
+                                                    <div class="blockquote undefined">
+                                                        <p class="text-success" style="font-size: 0.763rem;">
+                                                            <strong>WORKING HOURS</strong>
+                                                            <ul>
+                                                                <li>MONDAY-FRIDAY 8:OO AM - 5:00 PM</li>
+                                                                <li>SATURDAY 8:OO AM - 12:45 PM</li>
+                                                                <li>SUNDAY & PUBLIC HOLIDAYS CLOSED</li>
+                                                            </ul>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </div>
                                 </div>
+                                <div class="col-md-4">
+                                    <div class="info info-horizontal">
+                                        <div class="icon icon-warning">
+                                            <i class="material-icons">pin_drop</i>
+                                        </div>
+                                        <div class="description">
+                                            <h4 class="info-title"><a class="text-dark locationlinks" href="https://www.google.com/maps/place/ContiPartner+Thika+(NGSS)/@-1.0386593,37.0768733,18z/data=!4m12!1m6!3m5!1s0x182f4e893463a4b3:0xa4f8e93dd5fb25a8!2sContiPartner+Thika+(NGSS)!8m2!3d-1.0388711!4d37.0778574!3m4!1s0x182f4e893463a4b3:0xa4f8e93dd5fb25a8!8m2!3d-1.0388711!4d37.0778574" target="_blank">THIKA<br/> NEW GATITU SERVICE STATION</a></h4>
+                                            <p class="text-dark">
+                                                Wabera St.       
+                                                <br> Thika,
+                                                <br><a href="tel:+254729975767">+254 (0) 729 975767</a>
+                                                <br><a href="mailto:sales@ngss.co.ke">sales@ngss.co.ke</a>
+                                            </p>
+
+                                            <div class="info info-horizontal">
+                                                <div class="description">
+                                                    <div class="blockquote undefined">
+                                                        <p class="text-success" style="font-size: 0.763rem;">
+                                                            <strong>WORKING HOURS</strong>
+                                                            <ul>
+                                                                <li>MONDAY-FRIDAY 8:OO AM - 5:00 PM</li>
+                                                                <li>SATURDAY 8:OO AM – 3:00 PM</li>
+                                                                <li>SUNDAY & PUBLIC HOLIDAYS CLOSED</li>
+                                                            </ul>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
-                    <iframe src="http://tdfwebsitedemos.com/silverstone/stores/" width="100%" height="490px" frameborder="0"></iframe>
+                    <!-- <iframe src="http://tdfwebsitedemos.com/silverstone/stores/" width="100%" height="490px" frameborder="0"></iframe> -->
                 </div>
             </div>
         </div>
@@ -275,7 +335,7 @@ export default {
         padding-top: 30%;
     }
     .main-product{
-        margin: -40vh 0 0;
+        margin: -25vh 0 0;
     }
     @media (min-width: 1200px){
         .container {
