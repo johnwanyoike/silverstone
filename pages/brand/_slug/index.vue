@@ -190,15 +190,16 @@
                                 <template v-if="AboutContinental">
                                     <div class="row" v-for="dt in aboutbrand" :key="dt.id">
                                         <div class="col-md-8 ml-auto mr-auto text-center">
-                                            <h3 class="title">{{dt.title}}</h3>
+                                            <h4 class="title mt-0">{{dt.title}}</h4>
+                                            <p class="card-description text-dark" v-if="dt.description != null">
+                                                {{dt.description}}
+                                            </p>
                                         </div>
-                                        <div class="col-md-6" v-for="sbdt in dt.about" :key="sbdt.id">
-                                            <div class="card-body">
-                                                <h4 class="card-title">{{sbdt.title}}</h4>
+                                        <div class="col-md-10 ml-auto mr-auto" v-for="sbdt in dt.about" :key="sbdt.id">
+                                                <h5 class="card-title">{{sbdt.title}}</h5>
                                                 <p class="card-description text-dark">
                                                     {{sbdt.description}}
                                                 </p>
-                                            </div>
                                         </div>
                                     </div>
                                 </template>
