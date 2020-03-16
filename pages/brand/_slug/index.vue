@@ -188,6 +188,17 @@
                                 </template>
 
                                 <template v-if="AboutContinental">
+                                    <div class="row" v-if="brand.videos.length">
+                                        <div class="col-md-6 mr-auto ml-auto" v-for="(vid, i) in brand.videos" :key="i">
+                                            <vue-plyr>
+                                                <video poster="/img/poster.png" :src="`/img/${vid.video}`">
+                                                    <source :src="`/img/${vid.video}`" type="video/mp4" size="720">
+                                                    <source :src="`/img/${vid.video}`" type="video/mp4" size="1080">
+                                                </video>
+                                            </vue-plyr>
+                                        </div>
+                                    </div>
+
                                     <div class="row" v-for="dt in aboutbrand" :key="dt.id">
                                         <div class="col-md-8 ml-auto mr-auto text-center">
                                             <h4 class="title mt-0" :class="'text-'+brand.color">{{dt.title}}</h4>
@@ -196,10 +207,10 @@
                                             </p>
                                         </div>
                                         <div class="col-md-10 ml-auto mr-auto" v-for="sbdt in dt.about" :key="sbdt.id">
-                                                <h5 class="card-title" v-if="sbdt.title != null">{{sbdt.title}}</h5>
-                                                <p class="card-description text-dark">
-                                                    {{sbdt.description}}
-                                                </p>
+                                            <h5 class="card-title" v-if="sbdt.title != null">{{sbdt.title}}</h5>
+                                            <p class="card-description text-dark">
+                                                {{sbdt.description}}
+                                            </p>
                                         </div>
                                     </div>
                                 </template>
