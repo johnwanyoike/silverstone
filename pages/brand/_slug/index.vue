@@ -187,13 +187,26 @@
                                     </template>
                                 </template>
 
-
-
+                                <template v-if="AboutContinental">
+                                    <div class="row" v-for="dt in aboutbrand" :key="dt.id">
+                                        <div class="col-md-8 ml-auto mr-auto text-center">
+                                            <h3 class="title">{{dt.title}}</h3>
+                                        </div>
+                                        <div class="col-md-6" v-for="sbdt in dt.about" :key="sbdt.id">
+                                            <div class="card-body">
+                                                <h4 class="card-title">{{sbdt.title}}</h4>
+                                                <p class="card-description text-dark">
+                                                    {{sbdt.description}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </template>
 
                                 <template v-if="WhyContinental">
-                                    <h3 class="mt-0 title text-warning text-center">Why {{brand.name}} tyres</h3>
+                                    <h3 class="mt-0 mb-1 title text-warning text-center">Why {{brand.name}} tyres</h3>
                                     <div class="related-products">
-                                        <div class="col-md-12 mb-5">
+                                        <div class="col-md-12 mb-5" v-if="whybrand.description != null">
                                             <p class="text-dark">
                                                 {{whybrand.description}}
                                             </p>
@@ -233,9 +246,6 @@
                                     </template> -->
                                 </template>
 
-
-
-                                
                             </div>
                         </div>
                     </div>
@@ -273,7 +283,8 @@ export default {
             whybrand: null,
             ratio: null,
             diameter: null,
-            alldata: null
+            alldata: null,
+            aboutbrand: null
         }
     },
     methods: {
@@ -350,6 +361,7 @@ export default {
             whybrand: response.whybrand,
             brand: response.brand,
             width: response.width,
+            aboutbrand: response.aboutbrand,
         };
     }
 }
