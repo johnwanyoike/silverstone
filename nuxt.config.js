@@ -16,7 +16,6 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: pkg.description },
       {name: 'author', content: 'John Wanyoike'},
-      { 'http-equiv': 'refresh', content: '60' },
       {name: 'title', content: 'ContiPartner Your Fitment Professionals'},
       
       {property: 'og:title', content: 'Silverstone | Silverstone ContiPartner' },
