@@ -224,7 +224,7 @@
                                                         <p class="text-success" style="font-size: 0.763rem;">
                                                             <strong>WORKING HOURS</strong>
                                                             <ul>
-                                                                <li>MONDAY-FRIDAY 9:OO AM - 4:00 PM</li>
+                                                                <li>MONDAY-FRIDAY 8:OO AM - 4:00 PM</li>
                                                                 <li>SATURDAY 9:OO AM - 2:00 PM</li>
                                                                 <li>SUNDAY & PUBLIC HOLIDAYS CLOSED</li>
                                                             </ul>
