@@ -177,32 +177,32 @@
         <no-ssr> <!-- important to add no-ssr-->
             <carousel :autoplay="true" :autoplayHoverPause="true" :dots="false" :nav="false" :items="5" :center="true">
                 <div class="corselImages">
-                    <nuxt-link :to="{ name: 'brand-continental', params: {brand:'CONTI'} }">
+                    <nuxt-link :to="{ name: 'brand-slug', params: {slug:'continental'} }">
                         <img src="/clients-logos/client-1.png" alt="Conti tyres">
                     </nuxt-link>
                 </div>
                 <div class="corselImages">
-                    <nuxt-link :to="{ name: 'brand-hankook', params: {brand:'HANKOOK'} }">
+                    <nuxt-link :to="{ name: 'brand-slug', params: {slug:'hankook'} }">
                         <img src="/clients-logos/client-5.png" alt="hankook tyres">
                     </nuxt-link>
                 </div>
                 <div class="corselImages">
-                    <nuxt-link :to="{ name: 'brand-toyo', params: {brand:'TOYO'} }">
+                    <nuxt-link :to="{ name: 'brand-slug', params: {slug:'toyo'} }">
                         <img src="/clients-logos/toyo.png" alt="toyo tyres">
                     </nuxt-link>
                 </div>
                 <div class="corselImages">
-                    <nuxt-link :to="{ name: 'brand-general', params: {brand:'GENERAL'} }">
+                    <nuxt-link :to="{ name: 'brand-slug', params: {slug:'general'} }">
                         <img src="/clients-logos/client-3.png" alt="general tyres">
                     </nuxt-link>
                 </div>
                 <div class="corselImages">
-                    <nuxt-link :to="{ name: 'brand-otani', params: {brand:'OTANI'} }">
+                    <nuxt-link :to="{ name: 'brand-slug', params: {slug:'otani'} }">
                         <img src="/clients-logos/client-15.png" alt="zeta tyres">
                     </nuxt-link>
                 </div>
                 <div class="corselImages">
-                    <nuxt-link :to="{ name: 'brand-sailun', params: {brand:'SAILUN'} }">
+                    <nuxt-link :to="{ name: 'brand-slug', params: {slug:'sailun'} }">
                         <img src="/clients-logos/sailun.png" alt="sailun">
                     </nuxt-link>
                 </div>
