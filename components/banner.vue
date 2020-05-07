@@ -3,7 +3,7 @@
         <no-ssr>
             <slick-slide ref="slick" :options="slickOptions">
                 <!-- <img src="/img/slider/Promo_WEB_BANNER.jpg" alt=""> -->
-                <img src="/img/slider/image4.jpg" alt="">
+                <img src="/img/slider/ContiPartner.jpeg" alt="">
                 <img src="/img/slider/tyreassurance.jpg" alt="" @click="gotto('tyresurance')">
                 <img src="/img/slider/aspira.jpg" alt="" @click="gotto('aspira')">
                 <img src="/img/slider/image16.jpg" alt="">
