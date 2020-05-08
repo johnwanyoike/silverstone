@@ -35,7 +35,7 @@
                         </nuxt-link>
                     </div>
                 </li>
-                <li class="dropdown nav-item">
+                <!-- <li class="dropdown nav-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                         Speciality Tyres
                     </a>
@@ -44,7 +44,7 @@
                             {{br.name}}
                         </nuxt-link>
                     </div>
-                </li>
+                </li> -->
                 <li class="dropdown nav-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                         Batteries
@@ -102,13 +102,13 @@
                 })
                 return filtered;
             },
-            specialtyres: function(){
-                var filtered = [];
-                filtered = this.brands.filter((br) => {
-                    return br.name == 'Galaxy' || br.name == 'Maxam'
-                })
-                return filtered;
-            },
+            // specialtyres: function(){
+            //     var filtered = [];
+            //     filtered = this.brands.filter((br) => {
+            //         return br.name == 'Galaxy' || br.name == 'Maxam'
+            //     })
+            //     return filtered;
+            // },
             link () {
                 return {
                     name: 'brand-slug',
