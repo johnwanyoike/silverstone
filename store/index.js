@@ -1,4 +1,5 @@
 export const state = () => ({
+    uniquewidth: [],
     brands: [],
     unique: [],
     ratio:[],
@@ -10249,7 +10250,9 @@ export const getters = {
     selectSinglePattern (state){
         return state.selectSinglePattern
     },
-    
+    uniquewidth (state){
+        return state.uniquewidth
+    },
 }
 
 export const mutations = {
@@ -10407,12 +10410,19 @@ export const mutations = {
     SET_BRANDS (state, brands) {
         state.brands = brands
     },
+    SET_BRANDS_UNIQUE_WIDTH (state, uniquewidth) {
+        state.uniquewidth = uniquewidth
+    },
 }
 
 export const actions = {
     async nuxtServerInit({ commit, dispatch }) {
         let response = await this.$axios.$get('brands')
         commit('SET_BRANDS', response.data)
+
+        let widthresponse = await this.$axios.$get('uniquewidth')
+        commit('SET_BRANDS_UNIQUE_WIDTH', widthresponse)
+        
     },
     async setUnique ({ commit }, unique) {
         commit('SET_UNIQUE_TYRES', unique)

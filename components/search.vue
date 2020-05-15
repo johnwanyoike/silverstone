@@ -13,10 +13,10 @@
                                     <div class="col-md-4 col-sm-12">
                                         <div class="form-group">
                                             <label class="homelable">Tyre Width</label>
-                                            <select class="form-control sectionalwidth" @change="widthCallback($event)"  id="sectionalwidth">
+                                            <select class="form-control sectionalwidth" @change="brandWidthCallback($event)"  id="sectionalwidth">
                                                 <option selected>Select the width</option>
-                                                <option v-for="uni in unique_tyres" :key="uni.id" :value="uni">
-                                                    {{uni}}
+                                                <option v-for="(uni, i) in uniquewidth" :key="i" :value="uni.sectionalwidth">
+                                                    {{uni.sectionalwidth}}
                                                 </option>
                                             </select>
                                         </div>
@@ -24,10 +24,10 @@
                                     <div class="col-md-4 col-sm-12">
                                         <div class="form-group">
                                             <label class="homelable">Aspect Ratio</label>
-                                            <select class="form-control sectionalwidth" @change="ratioCallback($event)"  id="sectionalwidth">
+                                            <select class="form-control sectionalwidth" @change="brandRatioCallback($event)"  id="sectionalwidth">
                                                 <option selected>Select the ratio</option>
-                                                <option v-for="rat in tyre_ratio" :key="rat.id" :value="rat">
-                                                    {{rat}}
+                                                <option v-for="(rat, i) in ratio" :key="i" :value="rat.aspectratio">
+                                                    {{rat.aspectratio}}
                                                 </option>
                                             </select>
                                         </div>
@@ -35,10 +35,10 @@
                                     <div class="col-md-4 col-sm-12">
                                         <div class="form-group">
                                             <label class="homelable">Rim Diameter</label>
-                                            <select class="form-control sectionalwidth" @change="diameterCallback($event)"  id="sectionalwidth">
+                                            <select class="form-control sectionalwidth" @change="brandDiameterCallback($event)"  id="sectionalwidth">
                                                 <option selected>Select the diameter</option>
-                                                <option v-for="diam in tyre_diameter" :key="diam.id" :value="diam">
-                                                    {{diam}}
+                                                <option v-for="(diam,i) in diameter" :key="i" :value="diam.rimdiameter">
+                                                    {{diam.rimdiameter}}
                                                 </option>
                                             </select>
                                         </div>
@@ -49,122 +49,33 @@
                         </div>
                     </div>
                 </div>
-                <div class="row mt-5" id="serchresult">
-                    <!-- CONTI -->
-                    <div class="col-md-3" v-for="rs in conti" :key="rs.id">
-                        <div class="card card-profile card-plain animated bounceIn">
-                            <div class="card-avatar">
-                                <span>
-                                    <img class="img" :src="'/img/files/'+rs.image">
-                                </span>
-                            </div>
-                            <div class="card-body">
-                                <h4 class="card-title">{{rs.pattern}}</h4>
-                                <p class="card-description" style="margin: 0 0 0px;">
-                                    {{rs.description}}
-                                </p>
-                                <nuxt-link :to="{ name: rs.linkname+'-pattern', params: {pattern:rs.pattern} }" class="selecttyre btn btn-sm btn-primary btn-link float-center">
-                                    Read more
-                                </nuxt-link>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- GENERAL -->
-                    <div class="col-md-3" v-for="rs in general" :key="rs.id">
-                        <div class="card card-profile card-plain animated bounceIn">
-                            <div class="card-avatar">
-                                <span>
-                                    <img class="img" :src="'/img/files/'+rs.image">
-                                </span>
-                            </div>
-                            <div class="card-body">
-                                <h4 class="card-title">{{rs.pattern}}</h4>
-                                <p class="card-description" style="margin: 0 0 0px;">
-                                    {{rs.description}}
-                                </p>
-                                <nuxt-link :to="{ name: rs.linkname+'-pattern', params: {pattern:rs.pattern} }" class="selecttyre btn btn-sm btn-primary btn-link float-center">
-                                    Read more
-                                </nuxt-link>
+
+                <!-- Seach results -->
+                <template v-if="alldata != null">
+                    <div class="row mt-5" id="serchresult">
+                        <div class="col-md-3 animated bounceIn" v-for="(pt, i) in alldata" :key="i">
+                            <div class="card card-profile card-plain">
+                                <div class="card-avatar">
+                                    <span class="badge badge-pill badge-warning text-sm">{{pt.category.name}}</span>
+                                    <div class="portfolio-card-header">
+                                        <a class="full-screen" :href="'/img/files/'+pt.patterns.image" data-fancybox="portfolio" data-caption="description">
+                                            <img style="height: 100%;" class="img" :src="'/img/files/'+pt.patterns.image">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="card-body mt-0">
+                                    <nuxt-link :to="{ name: 'brand-slug-pattern-pattern', params: {slug:pt.brands.slug, pattern:pt.patterns.slug} }">
+                                        <h4 class="card-title my-0">{{pt.patterns.name}}</h4>
+                                    </nuxt-link>
+                                    <nuxt-link :to="{ name: 'brand-slug-pattern-pattern', params: {slug:pt.brands.slug, pattern:pt.patterns.slug} }" class="selecttyre btn btn-sm btn-primary btn-link float-center">
+                                        Read more
+                                    </nuxt-link>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <!-- HANKOOK -->
-                    <div class="col-md-3" v-for="rs in hankook" :key="rs.id">
-                        <div class="card card-profile card-plain animated bounceIn">
-                            <div class="card-avatar">
-                                <span>
-                                    <img class="img" :src="'/img/files/'+rs.image">
-                                </span>
-                            </div>
-                            <div class="card-body">
-                                <h4 class="card-title">{{rs.pattern}}</h4>
-                                <p class="card-description" style="margin: 0 0 0px;">
-                                    {{rs.description}}
-                                </p>
-                                <nuxt-link :to="{ name: rs.linkname+'-pattern', params: {pattern:rs.pattern} }" class="selecttyre btn btn-sm btn-primary btn-link float-center">
-                                    Read more
-                                </nuxt-link>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- TOYO -->
-                    <div class="col-md-3" v-for="rs in toyo" :key="rs.id">
-                        <div class="card card-profile card-plain animated bounceIn">
-                            <div class="card-avatar">
-                                <span>
-                                    <img class="img" :src="'/img/files/'+rs.image">
-                                </span>
-                            </div>
-                            <div class="card-body">
-                                <h4 class="card-title">{{rs.pattern}}</h4>
-                                <p class="card-description" style="margin: 0 0 0px;">
-                                    {{rs.description}}
-                                </p>
-                                <nuxt-link :to="{ name: rs.linkname+'-pattern', params: {pattern:rs.pattern} }" class="selecttyre btn btn-sm btn-primary btn-link float-center">
-                                    Read more
-                                </nuxt-link>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ZETA -->
-                    <div class="col-md-3" v-for="rs in zeta" :key="rs.id">
-                        <div class="card card-profile card-plain animated bounceIn">
-                            <div class="card-avatar">
-                                <span>
-                                    <img class="img" :src="'/img/files/'+rs.image">
-                                </span>
-                            </div>
-                            <div class="card-body">
-                                <h4 class="card-title">{{rs.pattern}}</h4>
-                                <p class="card-description" style="margin: 0 0 0px;">
-                                    {{rs.description}}
-                                </p>
-                                <nuxt-link :to="{ name: rs.linkname+'-pattern', params: {pattern:rs.pattern} }" class="selecttyre btn btn-sm btn-primary btn-link float-center">
-                                    Read more
-                                </nuxt-link>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- SAILUN -->
-                    <div class="col-md-3" v-for="rs in sailun" :key="rs.id">
-                        <div class="card card-profile card-plain animated bounceIn">
-                            <div class="card-avatar">
-                                <span>
-                                    <img class="img" :src="'/img/files/'+rs.image">
-                                </span>
-                            </div>
-                            <div class="card-body">
-                                <h4 class="card-title">{{rs.pattern}}</h4>
-                                <p class="card-description" style="margin: 0 0 0px;">
-                                    {{rs.description}}
-                                </p>
-                                <nuxt-link :to="{ name: rs.linkname+'-pattern', params: {pattern:rs.pattern} }" class="selecttyre btn btn-sm btn-primary btn-link float-center">
-                                    Read more
-                                </nuxt-link>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </template>
+                <!-- End of search result -->
                 <div class="row">
                     <div class="col-md-12 ml-auto mr-auto text-center">
                         <h2 class="title mb-0 mt-0">Our Brands</h2>
@@ -247,10 +158,14 @@ export default {
             ratio: null,
             diameter: null,
             showtredetails: false,
+
+            selectbrandwidth: null,
+            alldata: null
         };
     },
     computed: {
         ...mapGetters({
+            uniquewidth: 'uniquewidth',
             unique_tyres: 'unique_tyres',
             tyre_ratio: 'tyre_ratio',
             tyre_diameter: 'tyre_diameter',
@@ -312,46 +227,30 @@ export default {
         show(data){
             this.showtredetails = true
         },
-        widthCallback(event){
+        async brandWidthCallback(event){
             if (event.target.value != null) {
-                this.clearratio()
-                this.cleardiameter()
-                this.clearalldata()
-                this.width = event.target.value
-                this.gettyrewidth(event.target.value).then(() => {
-                    if (this.tyre_ratio.length) {
-                        // console.log('There is data for the ration.')
-                    }else{
-                        // console.log('There is no data for the ration.')
-                    }
-                })
+                this.diameter = {}
+                this.alldata = {}
+                this.searchingbrand = true
+                this.selectbrandwidth = event.target.value
+                let response = await this.$axios.$get(`uniqueratio/${event.target.value}`)
+                this.ratio = response
             }
         },
-        ratioCallback(event){
+        async brandRatioCallback(event){
             if (event.target.value != null) {
-                this.cleardiameter()
-                this.clearalldata()
-                this.ratio = event.target.value
-                this.gettyreratio({'width':this.width, 'ratio':event.target.value}).then(() => {
-                    if (this.tyre_diameter.length) {
-                        // console.log('There is data for diameter.')
-                    }else{
-                        // console.log('There is no data for diameter.')
-                    }
-                })
+                this.searchingbrand = true
+                this.alldata = {}
+                this.selectbrandratio = event.target.value
+                let response = await this.$axios.$get(`width/${this.selectbrandwidth}/ratio/${event.target.value}`)
+                this.diameter = response
             }
         },
-        diameterCallback(event){
+        async brandDiameterCallback(event){
             if (event.target.value != null) {
-                this.getalldata({'width':this.width, 'ratio':this.ratio, 'diameter':event.target.value}).then(() => {
-                    if (this.tyres_searched.length) {
-                        // console.log('There is data.')
-                    }else{
-                        // console.log('There is no data')
-                    }
-                })
-                var VueScrollTo = require('vue-scrollto');
-                var cancelScroll = VueScrollTo.scrollTo('#serchresult', 500)
+                this.searchingbrand = true
+                let response = await this.$axios.$get(`diameter/${event.target.value}/width/${this.selectbrandwidth}/ratio/${this.selectbrandratio}`)
+                this.alldata = response
             }
         },
     },

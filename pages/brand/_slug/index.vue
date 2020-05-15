@@ -127,25 +127,6 @@
                                                                     </nuxt-link>
                                                                 </div>
                                                             </div>
-
-
-
-
-                                                            
-                                                            <!-- <div class="card card-profile card-plain">
-                                                                <div class="card-avatar">
-                                                                    <span class="badge badge-pill badge-warning text-sm">{{uni.itemsubcategory}}</span>
-                                                                    <span>
-                                                                        <img style="height: 100%;" class="img" :src="'/img/files/'+uni.image">
-                                                                    </span>
-                                                                </div>
-                                                                <div class="card-body mt-0">
-                                                                    <h4 class="card-title my-0">{{uni.pattern}}</h4>
-                                                                    <nuxt-link :to="{ name: 'continentalpattern-pattern', params: {pattern:uni.pattern} }" class="selecttyre btn btn-sm btn-primary btn-link float-center">
-                                                                        Read more
-                                                                    </nuxt-link>
-                                                                </div>
-                                                            </div> -->
                                                         </div>
                                                     </div>
                                                 </div>
